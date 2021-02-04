@@ -5,8 +5,8 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.Toast
 import com.bumptech.glide.Glide
-import com.google.gson.Gson
-import com.kong.baselibrary.app
+import com.kong.baselibraryapp.GsonUtilK
+import com.kong.baselibraryapp.app
 import java.io.File
 
 
@@ -29,6 +29,6 @@ fun ImageView.loadImage(uri: Uri) = Glide.with(context).load(uri).into(this)
 fun ImageView.loadImage(file: File) = Glide.with(context).load(file).into(this)
 fun ImageView.loadImage(resId: Int) = Glide.with(context).load(resId).into(this)
 
-fun Any.toJson() = Gson().toJson(this)
-fun <T> String.fromJson(clazz: Class<T>): T = Gson().fromJson(this, clazz)
+fun Any.toJson() = GsonUtilK.gson.toJson(this)
+fun <T> String.fromJson(clazz: Class<T>): T = GsonUtilK.gson.fromJson(this, clazz)
 

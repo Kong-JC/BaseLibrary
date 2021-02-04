@@ -10,11 +10,11 @@ import androidx.annotation.StyleRes
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 
-class BaseDialog<DB : ViewDataBinding>(
+class BaseDialogK<DB : ViewDataBinding>(
     context: Context,
     @LayoutRes private val layoutId: Int,
     @StyleRes private val themeResId: Int = 0,
-    val onViewCreate: ((bind: DB, dialog: Dialog) -> Unit),
+    val onViewCreate: ((bind: DB, dialog: Dialog) -> Unit)
 ) : Dialog(context, themeResId) {
 
     init {

@@ -10,7 +10,7 @@ import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 
-open class BasePopup(
+open class BasePopupK(
     val context: Context,
     @LayoutRes val layoutId: Int,
     onViewCreate: ((view: View, pop: PopupWindow) -> Unit)

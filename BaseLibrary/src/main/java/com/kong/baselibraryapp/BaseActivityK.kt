@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 
-abstract class BaseActivity<B : ViewDataBinding>(
+abstract class BaseActivityK<B : ViewDataBinding>(
     @LayoutRes private val layout: Int
 ) : AppCompatActivity() {
 
@@ -16,6 +16,11 @@ abstract class BaseActivity<B : ViewDataBinding>(
         super.onCreate(savedInstanceState)
         bind = DataBindingUtil.setContentView(this, layout)
         bind.lifecycleOwner = this
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        bind.unbind()
     }
 
 }

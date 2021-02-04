@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">BaseLibrary</string>
+    <string name="app_name">App</string>
+    <string name="permissionsRequestSuccess">权限请求成功!</string>
+    <string name="permissionsRequestFailure">权限请求失败!</string>
 </resources>

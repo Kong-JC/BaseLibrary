@@ -1,10 +1,9 @@
 package com.jetosend.baselibrary
 
-import android.content.Context
 import androidx.annotation.ColorRes
 import androidx.annotation.StringRes
 import androidx.core.content.ContextCompat
-import com.kong.baselibrary.app
+import com.kong.baselibraryapp.app
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -22,23 +21,23 @@ private const val SS = "SS"
 
 /** 获取 YYYY-MM-DD HH:MM:SS 格式字符串 */
 fun getTimeFormatStrYMDHMS(
-    date: Date, firstSeparator: String = "-", lastSeparator: String = ":"
+    date: Date, dateSeparator: String = "-", timeSeparator: String = ":"
 ): String = SimpleDateFormat(
-    "$Y$firstSeparator$M$firstSeparator$D $HH$lastSeparator$MM$lastSeparator$SS"
+    "$Y$dateSeparator$M$dateSeparator$D $HH$timeSeparator$MM$timeSeparator$SS"
 ).format(date)
 
 fun getTimeFormatStrYMDHMS(
-    time: Long, firstSeparator: String = "-", lastSeparator: String = ":"
-): String = getTimeFormatStrYMDHMS(Date(time), firstSeparator, lastSeparator)
+    time: Long, dateSeparator: String = "-", timeSeparator: String = ":"
+): String = getTimeFormatStrYMDHMS(Date(time), dateSeparator, timeSeparator)
 
 /** 获取 YYYYMMDDHHMMSS 字符串 */
 fun getTimeStrYMDHMS(
-    date: Date, firstSeparator: String = "-", lastSeparator: String = ":"
+    date: Date
 ): String = SimpleDateFormat("$Y$M$D$HH$MM$SS").format(date)
 
 fun getTimeStrYMDHMS(
-    time: Long, firstSeparator: String = "-", lastSeparator: String = ":"
-): String = getTimeStrYMDHMS(Date(time), firstSeparator, lastSeparator)
+    time: Long
+): String = getTimeStrYMDHMS(Date(time))
 
 
 //fun getNowTimeFromHM(
@@ -85,11 +84,11 @@ val h = 1000 / 60 / 60 % 60
 val m = 1000 / 60 % 60
 val s = 1000 % 60
 
-fun getMediaTime(time: Int): String = getMediaTime(time.toLong())
-fun getMediaTime(time: Float): String = getMediaTime(time.toLong())
-fun getMediaTime(time: Double): String = getMediaTime(time.toLong())
+fun getMediaFormatTime(time: Int): String = getMediaFormatTime(time.toLong())
+fun getMediaFormatTime(time: Float): String = getMediaFormatTime(time.toLong())
+fun getMediaFormatTime(time: Double): String = getMediaFormatTime(time.toLong())
 
-fun getMediaTime(time: Long): String {
+fun getMediaFormatTime(time: Long): String {
     val hStr = if (time / h == 0L) "00" else if (h < 10) "0$h" else h
     val mStr = if (time / m == 0L) "00" else if (m < 10) "0$m" else m
     val sStr = if (time / s == 0L) "00" else if (s < 10) "0$s" else s
@@ -114,17 +113,16 @@ fun getThousandsDigits(value: Int): Int = value / 1000 % 10
 fun getColorEx(@ColorRes id: Int): Int = ContextCompat.getColor(app, id)
 fun getStringEx(@StringRes id: Int): String = app.resources.getString(id)
 
-
 fun ioThread(f: () -> Unit) = Executors.newSingleThreadExecutor().execute(f)
 
 fun launch(block: suspend CoroutineScope.() -> Unit) = GlobalScope.launch(block = block)
 
-fun dp2px(context: Context, dp: Float): Int {
-    val scale: Float = context.getResources().getDisplayMetrics().density
+fun dp2px(dp: Float): Int {
+    val scale: Float = app.getResources().getDisplayMetrics().density
     return (dp * scale + 0.5f).toInt()
 }
 
-fun px2dp(context: Context, px: Float): Int {
-    val scale: Float = context.getResources().getDisplayMetrics().density
+fun px2dp(px: Float): Int {
+    val scale: Float = app.getResources().getDisplayMetrics().density
     return (px / scale + 0.5f).toInt()
 }

@@ -1,4 +1,4 @@
-package com.kong.baselibrary
+package com.kong.baselibraryapp
 
 import org.junit.Test
 

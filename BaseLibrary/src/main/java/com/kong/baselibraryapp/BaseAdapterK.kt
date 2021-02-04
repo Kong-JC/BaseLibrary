@@ -7,11 +7,11 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
 
-class BaseAdapter<T, DB : ViewDataBinding>(
+class BaseAdapterK<T, DB : ViewDataBinding>(
     @LayoutRes val layoutId: Int,
     private var datas: MutableList<T> = mutableListOf(),
     private val onViewCreate: ((bind: DB, data: T, position: Int) -> Unit)? = null
-) : RecyclerView.Adapter<BaseAdapter.BaseViewHolder>() {
+) : RecyclerView.Adapter<BaseAdapterK.BaseViewHolder>() {
 
     lateinit var bind: ViewDataBinding
 
