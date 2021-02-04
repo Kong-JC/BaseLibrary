@@ -3,8 +3,8 @@ plugins {
     id 'kotlin-android'
     id 'kotlin-android-extensions'
     id 'kotlin-kapt'
-    id 'maven-publish'
-    id 'com.github.dcendents.android-maven'
+//    id 'maven-publish'
+//    id 'com.github.dcendents.android-maven'
 }
 
 android {

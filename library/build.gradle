@@ -3,10 +3,11 @@ plugins {
     id 'kotlin-android'
     id 'kotlin-android-extensions'
     id 'kotlin-kapt'
+    id 'com.github.dcendents.android-maven'
 }
 
 apply from: 'bintrayUpload.gradle'
-apply plugin: 'com.github.dcendents.android-maven'
+//apply plugin: 'com.github.dcendents.android-maven'
 group='com.github.Kong-JC'
 
 android {
