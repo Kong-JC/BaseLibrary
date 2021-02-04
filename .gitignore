@@ -2,8 +2,8 @@
 *.pro
 /.gradle/
 /.idea
-gradlew
-gradlew.bat
+#gradlew
+#gradlew.bat
 local.properties
 *.zip
 *.log
