@@ -3,11 +3,11 @@ plugins {
     id 'kotlin-android'
     id 'kotlin-android-extensions'
     id 'kotlin-kapt'
-    id 'maven-publish'
-    id 'com.github.dcendents.android-maven'
 }
 
 apply from: 'bintrayUpload.gradle'
+apply plugin: 'com.github.dcendents.android-maven'
+group='com.github.Kong-JC'
 
 android {
     compileSdkVersion 30
@@ -15,8 +15,8 @@ android {
     defaultConfig {
         minSdkVersion 16
         targetSdkVersion 30
-        versionCode 5
-        versionName "1.0.5"
+        versionCode 6
+        versionName "1.0.6"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
